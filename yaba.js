@@ -17,58 +17,49 @@ function rockpaperscissor() {
         return comput;
         }
     computerchoice()
-   /*  if (comput == 0) {
-            console.log('La compu eligio piedra');
+    if (comput == 0) {
+            console.log('La compu eligió Piedra');
         }
         else if (comput == 1){
-            console.log('La compu eligio papel');
+            console.log('La compu eligió Papel');
             }
         else if (comput == 2){
-            console.log('la compu eligio tijeras');
-            } */
+            console.log('la compu eligió Tijeras');
+            }
     function calcular() {
     if (choice == 'PIEDRA' || choice == 'ROCK') {
         if (comput == 0) {
                 resultado = 'TIE';
-                console.log('La computadora eligió Piedra');
             }
             else if (comput == 1) {
                 resultado = 'LOSE';
-                console.log('La computadora eligió Papel');
                 }
             else {
                 resultado = 'WIN';
-                console.log('La computadora eligió Tijeras');
         }
     }
 
     if (choice == 'PAPEL' || choice == 'PAPER') {
         if (comput == 0) {
             resultado = 'WIN';
-            console.log('La computadora eligió Piedra');
         }
         else if (comput == 1) {
             resultado = 'TIE';
-            console.log('La computadora eligió Papel');
             }
         else {
             resultado = 'LOSE';
-            console.log('La computadora eligió Tijeras');
         }
     }
 
     if (choice == 'TIJERA' || choice == 'SCISSORS' || choice == 'TIJERAS') {
         if (comput == 0) {
             resultado = 'LOSE';
-            console.log('La computadora eligió Piedra');
         }
         else if (comput == 1) {
             resultado = 'WIN';
-            console.log('La computadora eligió Papel');
             }
         else {
             resultado = 'TIE';
-            console.log('La computadora eligió Tijeras');
         }
     }
     }
