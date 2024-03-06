@@ -1,16 +1,92 @@
-let rock = 1;
-let paper = 2;
-let scissors = 3;
+let rock = 0;
+let paper = 1;
+let scissors = 2;
+let choice; 
+let comput;
+let resultado;
 
-let comput = Math.floor(Math.random()*3);
+function computerchoice() {
+comput = Math.floor(Math.random()*3);
+return comput;
+}
+
+computerchoice()
 console.log(comput);
 
 if (comput == 0) {
-    console.log('La computadora eligió Piedra');
+    console.log('La compu eligio piedra');
 }
-else if (comput == 1) {
-    console.log('La computadora eligió Papel');
+    else if (comput == 1){
+    console.log('La compu eligio papel');
     }
+    else if (comput == 2){
+        console.log('la compu eligio tijeras');
+    }
+
+
+function playerchoice() {
+    choice = prompt('Elige Piedra, Papel o Tijeras','');
+    choice = choice.toUpperCase();
+    console.log(choice);
+}
+
+playerchoice();
+
+function calcular() {
+if (choice == 'PIEDRA' || choice == 'ROCK') {
+    if (comput == 0) {
+            resultado = 'TIE';
+            console.log('La computadora eligió Piedra');
+        }
+        else if (comput == 1) {
+            resultado = 'LOSE';
+            console.log('La computadora eligió Papel');
+            }
+        else {
+            resultado = 'WIN';
+            console.log('La computadora eligió Tijeras');
+    }
+}
+
+if (choice == 'PAPEL' || choice == 'PAPER') {
+    if (comput == 0) {
+        resultado = 'WIN';
+        console.log('La computadora eligió Piedra');
+    }
+    else if (comput == 1) {
+        resultado = 'TIE';
+        console.log('La computadora eligió Papel');
+        }
+    else {
+        resultado = 'LOSE';
+        console.log('La computadora eligió Tijeras');
+    }
+}
+
+if (choice == 'TIJERA' || choice == 'SCISSORS' || choice == 'TIJERAS') {
+    if (comput == 0) {
+        resultado = 'LOSE';
+        console.log('La computadora eligió Piedra');
+    }
+    else if (comput == 1) {
+        resultado = 'WIN';
+        console.log('La computadora eligió Papel');
+        }
+    else {
+        resultado = 'TIE';
+        console.log('La computadora eligió Tijeras');
+    }
+}
+}
+
+calcular();
+
+if (resultado == 'LOSE') {
+    console.log('Perdiste mijo');
+}
+else if (resultado == 'WIN') {
+    console.log('Ganaste we');
+}
 else {
-    console.log('La computadora eligió Papel');
+    console.log('Pues no perdiste, pero tampoco ganaste');
 }
