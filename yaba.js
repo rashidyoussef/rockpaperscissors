@@ -8,11 +8,9 @@ let playerscore = 0;
 let compuscore = 0;
 
 function game() {
+    for (i = 0; i < 5; i++){
     rockpaperscissor();
-    rockpaperscissor();
-    rockpaperscissor();
-    rockpaperscissor();
-    rockpaperscissor();
+    }
 }
 
 
@@ -23,7 +21,6 @@ function rockpaperscissor() {
         comput = Math.floor(Math.random()*3);
         return comput;
         }
-    
     function playerchoice() {
             choice = prompt('Elige Piedra, Papel o Tijeras','');
             choice = choice.toUpperCase();
@@ -138,5 +135,5 @@ function rockpaperscissor() {
     }
 
     
-    console.log(compuscore);
-    console.log(playerscore);
+    /* console.log(compuscore);
+    console.log(playerscore); */
