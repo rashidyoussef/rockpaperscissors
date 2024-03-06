@@ -15,96 +15,107 @@ function game() {
     rockpaperscissor();
 }
 
+
 game();
 
 function rockpaperscissor() {
-    function playerchoice() {
-        choice = prompt('Elige Piedra, Papel o Tijeras','');
-        choice = choice.toUpperCase();
-        console.log('Elegiste:' + choice);
-        return choice;
-    }
-    playerchoice();
     function computerchoice() {
         comput = Math.floor(Math.random()*3);
         return comput;
         }
-    computerchoice()
-    if (comput == 0) {
-            console.log('La compu eligió Piedra');
-        }
-        else if (comput == 1){
-            console.log('La compu eligió Papel');
-            }
-        else if (comput == 2){
-            console.log('la compu eligió Tijeras');
-            }
+    
+    function playerchoice() {
+            choice = prompt('Elige Piedra, Papel o Tijeras','');
+            choice = choice.toUpperCase();
+            console.log('Elegiste:' + choice);
+            return choice;
+    }
     function calcular() {
-    if (choice == 'PIEDRA' || choice == 'ROCK') {
-        if (comput == 0) {
-                resultado = 'TIE';
+        if (choice == 'PIEDRA' || choice == 'ROCK') {
+            if (comput == 0) {
+                    resultado = 'TIE';
+                    console.log('Empataste esta ronda');
+                    return resultado;
+                }
+                else if (comput == 1) {
+                    resultado = 'LOSE';
+                    console.log('Perdiste esta ronda');
+                    return resultado;
+                    }
+                else {
+                    resultado = 'WIN';
+                    console.log('Ganaste esta ronda');
+                    return resultado;
+                            }                
+        }
+    
+        if (choice == 'PAPEL' || choice == 'PAPER') {
+            if (comput == 0) {
+                resultado = 'WIN';
+                console.log('Ganaste esta ronda');
                 return resultado;
             }
             else if (comput == 1) {
-                resultado = 'LOSE';
+                resultado = 'TIE';
+                console.log('Empataste esta ronda');
                 return resultado;
                 }
             else {
-                resultado = 'WIN';
+                resultado = 'LOSE';
+                console.log('Perdiste esta ronda');
                 return resultado;
-                        }                
-    }
-
-    if (choice == 'PAPEL' || choice == 'PAPER') {
-        if (comput == 0) {
-            resultado = 'WIN';
-            return resultado;
-        }
-        else if (comput == 1) {
-            resultado = 'TIE';
-            return resultado;
             }
-        else {
-            resultado = 'LOSE';
-            return resultado;
         }
-    }
-
-    if (choice == 'TIJERA' || choice == 'SCISSORS' || choice == 'TIJERAS') {
-        if (comput == 0) {
-            resultado = 'LOSE';
-            return resultado;
-        }
-        else if (comput == 1) {
-            resultado = 'WIN';
-            return resultado;
+    
+        if (choice == 'TIJERA' || choice == 'SCISSORS' || choice == 'TIJERAS') {
+            if (comput == 0) {
+                resultado = 'LOSE';
+                console.log('Perdiste esta ronda');
+                return resultado;
             }
-        else {
-            resultado = 'TIE';
-            return resultado;
+            else if (comput == 1) {
+                resultado = 'WIN';
+                console.log('Ganaste esta ronda');
+                return resultado;
+                }
+            else {
+                resultado = 'TIE';
+                console.log('Empataste esta ronda');
+                return resultado;
+            }
         }
-    }
-    }
-    if (resultado = 'WIN') {
-        playerscore++;
-        return playerscore;
-    }
-    else if (resultado = 'LOSE'){
-        compuscore++;
-        return compuscore;
-    }
-    else if (resultado = 'TIE'){
-        playerscore++;
-        compuscore++;
-        return playerscore;
-        return compuscore;
-    }
-  
+        }
 
-
+    playerchoice();
+    computerchoice()
+    if (comput == 0) {
+        console.log('La compu eligió Piedra');
+    }
+    else if (comput == 1){
+        console.log('La compu eligió Papel');
+        }
+    else if (comput == 2){
+        console.log('la compu eligió Tijeras');
+        }
     calcular();
 
-    if (resultado == 'LOSE') {
+
+    if (resultado == 'WIN') {
+        playerscore++;
+        return playerscore;
+    }
+    else if (resultado == 'LOSE'){
+        compuscore++;
+        return compuscore;
+    }
+    else {
+        playerscore++
+        compuscore++
+        return playerscore,compuscore;
+    }
+
+
+    /* if (resultado == 'LOSE') {
         console.log('Perdiste mijo');
     }
     else if (resultado == 'WIN') {
@@ -112,8 +123,9 @@ function rockpaperscissor() {
     }
     else {
         console.log('Pues no perdiste, pero tampoco ganaste');
+    } */
     }
-    }
+
 
     if (playerscore > compuscore) {
         console.log('Ganaste la partida final');
