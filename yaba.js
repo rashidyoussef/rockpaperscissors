@@ -10,6 +10,7 @@ function rockpaperscissor() {
         choice = prompt('Elige Piedra, Papel o Tijeras','');
         choice = choice.toUpperCase();
         console.log('Elegiste:' + choice);
+        return choice;
     }
     playerchoice();
     function computerchoice() {
