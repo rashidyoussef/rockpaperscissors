@@ -7,6 +7,11 @@
     gap:50px;
     background: grey;
 }
+
+.mitad_pc {
+    display:flex;
+    background-color: red;
+}
 #mitadjugador {
     display:block;
     background-color:rgb(91, 74, 241);
