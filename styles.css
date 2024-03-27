@@ -1,0 +1,36 @@
+
+#supremo {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+    background: grey;
+}
+#mitadjugador {
+    display:block;
+    background-color:rgb(91, 74, 241);
+}
+#mitadpc {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 200px;
+    padding:0px;
+    margin:0px;
+    background-color: red;
+}
+#mitadpc > p {
+    padding:0px;
+    margin:0px;
+    display:inline;
+}
+
+#resultados {
+    display:block;
+    background-color: grey;
+    border: 3px solid black;
+    text-align: center;
+    flex-wrap: no-wrap;
+}

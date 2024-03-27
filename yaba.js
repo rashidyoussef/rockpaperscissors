@@ -1,139 +1,113 @@
-let rock = 0;
-let paper = 1;
-let scissors = 2;
 let choice; 
+let pcchoice;
 let comput;
-let resultado;
 let playerscore = 0;
 let compuscore = 0;
+const botones = document.querySelectorAll("button");
+const piedra = document.getElementById("rock");
+const papel = document.getElementById("paper");
+const tijera = document.getElementById("scissors");
 
-function game() {
-    for (i = 0; i < 5; i++){
-    rockpaperscissor();
-    }
-}
+const resultados = document.getElementById("resultados");
+const seleccionjugador = document.createElement("p");
+const seleccionpc = document.createElement("p");
+const resultadojugador = document.createElement("h3");
+const resultadocompu = document.createElement("h3");
 
 
-game();
+botones.forEach((button) => {
+  button.addEventListener("click", () => {
+    choice = (button.id);
+    rockpaperscissor()
+  });
+});
 
-function rockpaperscissor() {
+function rockpaperscissor(playerchoice,pcchoice) {
     function computerchoice() {
         comput = Math.floor(Math.random()*3);
-        return comput;
+        if (comput == 0) {
+            pcchoice = "PIEDRA";
+        }
+        else if (comput == 1) {
+            pcchoice = "PAPEL";
+        }
+        else {
+            pcchoice = "TIJERAS";
+        }
+        console.log("La compu eligió " + pcchoice);
+        return pcchoice
         }
     function playerchoice() {
-            choice = prompt('Elige Piedra, Papel o Tijeras','');
             choice = choice.toUpperCase();
             console.log('Elegiste:' + choice);
             return choice;
-    }
+        }
     function calcular() {
-        if (choice == 'PIEDRA' || choice == 'ROCK') {
-            if (comput == 0) {
-                    resultado = 'TIE';
-                    console.log('Empataste esta ronda');
-                    return resultado;
-                }
-                else if (comput == 1) {
-                    resultado = 'LOSE';
-                    console.log('Perdiste esta ronda');
-                    return resultado;
-                    }
-                else {
-                    resultado = 'WIN';
-                    console.log('Ganaste esta ronda');
-                    return resultado;
-                            }                
-        }
-    
-        if (choice == 'PAPEL' || choice == 'PAPER') {
-            if (comput == 0) {
-                resultado = 'WIN';
-                console.log('Ganaste esta ronda');
-                return resultado;
-            }
-            else if (comput == 1) {
-                resultado = 'TIE';
-                console.log('Empataste esta ronda');
-                return resultado;
-                }
-            else {
-                resultado = 'LOSE';
-                console.log('Perdiste esta ronda');
-                return resultado;
-            }
-        }
-    
-        if (choice == 'TIJERA' || choice == 'SCISSORS' || choice == 'TIJERAS') {
-            if (comput == 0) {
-                resultado = 'LOSE';
-                console.log('Perdiste esta ronda');
-                return resultado;
-            }
-            else if (comput == 1) {
-                resultado = 'WIN';
-                console.log('Ganaste esta ronda');
-                return resultado;
-                }
-            else {
-                resultado = 'TIE';
-                console.log('Empataste esta ronda');
-                return resultado;
-            }
-        }
+        if (choice == 'PIEDRA' && pcchoice == 'PIEDRA') {
+             console.log('Empataste esta ronda');
         }
 
-    playerchoice();
-    computerchoice()
-    if (comput == 0) {
-        console.log('La compu eligió Piedra');
-    }
-    else if (comput == 1){
-        console.log('La compu eligió Papel');
+        else if (choice == 'PIEDRA' && pcchoice == 'PAPEL') {
+            compuscore++;
+            console.log('Perdiste esta ronda');
+            return compuscore;
         }
-    else if (comput == 2){
-        console.log('la compu eligió Tijeras');
+        else if (choice == 'PIEDRA' && pcchoice == 'TIJERAS'){
+            playerscore++;
+            console.log('Ganaste esta ronda');
+            return playerscore
         }
-    calcular();
+        else if (choice == 'PAPEL' && pcchoice == 'PAPEL') {
+            console.log('Empataste esta ronda');
+       }
 
-
-    if (resultado == 'WIN') {
-        playerscore++;
-        return playerscore;
-    }
-    else if (resultado == 'LOSE'){
+       else if (choice == 'PAPEL' && pcchoice == 'TIJERAS') {
         compuscore++;
+        console.log('Perdiste esta ronda');
         return compuscore;
-    }
-    else {
-        playerscore++
-        compuscore++
-        return playerscore,compuscore;
-    }
+       }
+       else if (choice == 'PAPEL' && pcchoice == 'PIEDRA'){
+        playerscore++;
+        console.log('Ganaste esta ronda');
+        return playerscore
+       }
+       else if (choice == 'TIJERAS' && pcchoice == 'TIJERAS') {
+        console.log('Empataste esta ronda');
+        }
 
+        else if (choice == 'TIJERAS' && pcchoice == 'PIEDRA') {
+            compuscore++;
+            console.log('Perdiste esta ronda');
+            return compuscore;
+        }
+        else {
+            playerscore++;
+            console.log('Ganaste esta ronda');
+            return playerscore
+        }                
+        }
+        playerchoice()
+        computerchoice()
+        calcular()
+        seleccionjugador.textContent = "Elegiste: "+choice;
+        seleccionpc.textContent = "La compu eligió: "+pcchoice;
+        resultadojugador.textContent = "El jugador ha ganado "+playerscore+" rondas";
+        resultadocompu.textContent = "La computadora ha ganado "+compuscore+" rondas";
 
-    /* if (resultado == 'LOSE') {
-        console.log('Perdiste mijo');
-    }
-    else if (resultado == 'WIN') {
-        console.log('Ganaste we');
-    }
-    else {
-        console.log('Pues no perdiste, pero tampoco ganaste');
-    } */
-    }
+        if (playerscore == 5){
+            alert("El juego ha terminado");
+            alert("Sí, sí, ganaste, ya te vimos...")
+        }
+        else if (compuscore == 5){
+            alert("El juego ha terminado");
+            alert("El ganador es: LA COMPU ALV JSJSJASJA")
+        }
+        }
 
+resultados.appendChild(seleccionjugador);
+resultados.appendChild(seleccionpc);
+resultados.appendChild(resultadojugador);
+resultados.appendChild(resultadocompu);
 
-    if (playerscore > compuscore) {
-        console.log('Ganaste la partida final');
-    }
-    else if (playerscore = compuscore) {
-        console.log('Empataste con una computadora jajajaja');
-    }
-    else if (playerscore < compuscore) {
-        console.log('Nmms perdiste jsjsjsjs');
-    }
+   
 
-    
-    /* console.log(compuscore);
-    console.log(playerscore); */
