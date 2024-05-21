@@ -1,2 +1,2 @@
 # rockpaperscissors
-Simple Rock, Paper, Sirssors game
+Simple Rock, Paper, Scissors game
