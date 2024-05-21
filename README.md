@@ -1,2 +1,2 @@
 # rockpaperscissors
-Bueno, a ver quepedo
+Simple Rock, Paper, Sirssors game
